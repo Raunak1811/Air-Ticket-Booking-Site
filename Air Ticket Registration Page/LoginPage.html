@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Validation</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="design.css">
+        <script defer src="logic.js"></script>
+    </head>
+  
+       
+    
+    <title>Air India Ticket Booking</title>
+    <body>
+        <img src = "https://th.bing.com/th/id/OIP.mhsRrCBzazG4KOCw1bB74gHaDt?pid=ImgDet&rs=1" width="205px">
+        <h2><b>Book Tickets</b></h2>
+
+        <div class="container" id="container">
+            <div class="form-container sign-up-container"> 
+                <form action="#">
+                    <h3>Register Now!</h3>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fa fa-fw fa-facebook"></i></a>
+                        <a href="#" class="social"><i class="fa fa-fw fa-google-plus"></i></a>
+                        <a href="#" class="social"><i class="fa fa-fw fa-twitter"></i></a>
+                    </div>
+                    <span>or use your email for registration</span>
+                    <input type="text" name="" placeholder="Name" id="name"/>
+                    <label class="gender">
+                        <span>Gender:</span>
+                        <input  type="radio" name="gender" value = "" id="male">
+                        <span>Male</span>
+                        <input  type="radio" name="gender" value = "" id="female">
+                        <span>Female</span>
+                        <input  type="radio" name="gender" value = "" id="others">
+                        <span>Others</span>
+                    </label>
+                    <label class ="language">
+                        <span>Language:</span>
+                        <input  type="checkbox" name="language1" value = "" id="english">
+                        <span>English</span>
+                        <input  type="checkbox" name="language2" value = "" id="hindi">
+                        <span>Hindi</span>
+                        <input  type="checkbox" name="language3" value = "" id="bengali">
+                        <span>Bengali</span>
+                    </label>
+                
+                    <select class ="Airport Departure">
+                        <option>Select Country:</option>
+                        <option>India</option>
+                        <option>USA</option>
+                        <option>Germany</option>
+                        <option>Nepal</option>
+                        <option>Italy</option>
+                        <option>Bhutan</option>
+                    </select>
+
+                    <select class ="Airport Arrival">
+                        <option>Select Country:</option>
+                        <option>India</option>
+                        <option>USA</option>
+                        <option>Germany</option>
+                        <option>Nepal</option>
+                        <option>Italy</option>
+                        <option>Bhutan</option>
+                    </select>
+                      
+                    <input type="email" name="" placeholder="Email*" id="email1"/>
+                    <input type="number" name="" placeholder="Mobile*" id="mobile"/>
+                    <input type="password" name="" placeholder="Password*" id="password1"/>
+                    <input type="password" name="" placeholder="Re-enter Password*" id="repassword"/>
+                    <br>
+                    <button onclick="update()">Plan A Trip</button>
+                </form>
+            </div>
+
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h1>Registered?</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fa fa-fw fa-facebook"></i></a>
+                        <a href="#" class="social"><i class="fa fa-fw fa-google-plus"></i></a>
+                        <a href="#" class="social"><i class="fa fa-fw fa-twitter"></i></a>
+                    </div>
+                
+                    <span>or use your existing account to login</span>
+                    <input type="email" name="" placeholder="Email*" id ="email"/>
+                    <input type="password" name="" placeholder="Password*" id="password"/>
+                    <input type="password" name="" placeholder="Confirm Password*"  id="conpassword"/>
+                    <br>
+                    <button onclick="validate()">Sign In</button>
+                    <br>
+                    <button class="forgot" id="forgotPass">Forgot Password?</button>
+
+                </form>
+            </div>
+            
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h3>Login to View Account</h3>
+                        <p>To keep connected with us please login with your details</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Not Registered?</h1>
+                        <p>Enter your personal details and start your journey with us</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class = "error" id ="pswd_info">
+            <ul>
+            <h6>Your Password have . . .</h6>
+            <li id="upper" class="invalid"><i class="fa fa-times"></i> Atleast <strong>one uppercase</strong></li>
+            <li id="lower" class="invalid"><i class="fa fa-times"></i> Atleast <strong>one lowercase</strong></li>
+            <li id="number" class="invalid"><i class="fa fa-times"></i> Atleast <strong>one number</strong></li>
+            <li id="special_character" class="invalid"><i class="fa fa-times"></i> Atleast <strong>one special symbol</strong></li>
+            <li id="length" class="invalid"><i class="fa fa-times"></i> Atleast <strong>8 characters</strong></li>
+            </ul>
+            </div>
+
+            <div class = "error" id ="email_info">
+            <ul>
+            <h6>Your Email have . . .</h6>
+            <li id="attherate" class="invalid"><i class="fa fa-times"></i> Atleast <strong>one @</strong></li>
+            <li id="dot" class="invalid"><i class="fa fa-times"></i> Atleast <strong>one dot</strong></li>
+            <li id="other_special_char" class="invalid"><i class="fa fa-times"></i> No <strong>other special character</strong></li>
+            <li id="space" class="invalid"><i class="fa fa-times"></i> No <strong>space in email</strong></li>
+            </ul>
+        </div>
+    </body>
+</html>
